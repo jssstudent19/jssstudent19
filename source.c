@@ -4,88 +4,112 @@
 
 
 
-
-
 void main()
 
 {
 
-	int i,j;
+  int graph[40][40],v,n,q[40],f=0,r=-1,i,j,cnt=0;
 
-	int n,a[10][10],q[10],r=-1,f=0,co=0,v;
+  printf("enter no. of vertices\n");
 
-	printf("Enter the number of vertices : ");
+  scanf("%d",&n);
 
-	scanf("%d",&n);
+  printf("enter adjacency matrix\n");
 
-	int* indeg=calloc(n+1,sizeof(int));
+  for(i=0;i<n;i++)
 
-	printf("Enter the adjacency matrix : \n");
+    for(j=0;j<n;j++)
 
-	for(i=1;i<=n;i++)
+     scanf("%d",&graph[i][j]);
 
-		for(j=1;j<=n;j++)
+     
 
-			scanf("%d",&a[i][j]);
+  int*indegree=(int*)malloc(n*sizeof(int));
 
-	for(i=1;i<=n;i++)
+  for(i=0;i<n;i++)
 
-		for(j=1;j<=n;j++)
+    for(j=0;j<n;j++)
 
-			if(a[j][i])
+      if(graph[i][j])
 
-			    indeg[i]++;
+        indegree[i]++;
 
-    for(i=1;i<=n;i++)
+  for(i=0;i<n;i++)
 
-        if(!indeg[i])
+    for(j=0;j<n;j++)
 
-            q[++r]=i;
+      if(!indegree[i])
 
-	int* topo=calloc(n+1,sizeof(int));
+       q[++r]=i;
 
-	while(r>=f)
+  int*topo=(int*)malloc(n*sizeof(int));
 
-	{
+  
 
-	    v=q[++f];
+  while(f<=r)
 
-	    topo[++co]=v;
+  {
 
-	        for(int j=1;j<=n;j++)
+    v=q[f++];
 
-                if(a[v][j])
+    topo[++cnt]=v;
 
-                {
+    for(j=0;j<n;j++)
 
-                    a[v][j]=0;
+    {
 
-                    indeg[j]--;
+      if(graph[v][j])
 
-                    if(indeg[j]==0)
+      {
 
-                        q[++r]=j;
+        graph[v][j]=0;
 
-                }
+        indegree[j]--;
 
-	}
+        if(!indegree[j])
 
-	if(co<n)
+        q[++r]=j;
 
-	    printf("The topological sorting is not possible");
+      }
 
-	else
+    }
 
-	{
+  }
 
-	    printf("topological Sorting is : ");
+  if(cnt!=n)
 
-	    for(int i=0;i<=co;i++)
+  {
 
-	        printf("%d ",topo[i]);
+    printf("topological order not possible\n");
 
-	}
+  }
 
-	printf("\n");
+  else
+
+  {
+
+    printf("topological order is:\n");
+
+    for(i=0;i<=cnt;i++)
+
+    {
+
+      printf("%d\t",topo[i]);
+
+    }
+
+  }
 
 }
+
+       
+
+        
+
+      
+
+  
+
+      
+
+  
