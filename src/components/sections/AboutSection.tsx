@@ -3,10 +3,10 @@ import Section from "./Section";
 export default function AboutSection() {
   return (
     <Section id="about" alternate>
-      <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-8">
+      <h2 className="animate-fade-in text-3xl sm:text-4xl font-bold text-foreground mb-8">
         About Me
       </h2>
-      <div className="flex flex-col md:flex-row items-center gap-8">
+      <div className="animate-slide-up flex flex-col md:flex-row items-center gap-8">
         <div className="flex-shrink-0">
           <div className="w-40 h-40 rounded-lg bg-muted flex items-center justify-center">
             <span className="text-muted-foreground">Image</span>
