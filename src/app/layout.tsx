@@ -1,0 +1,64 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: {
+    default: "Portfolio | Developer & Designer",
+    template: "%s | Portfolio",
+  },
+  description:
+    "Personal portfolio showcasing projects, skills, and experience in software development and design.",
+  keywords: [
+    "portfolio",
+    "developer",
+    "software engineer",
+    "web development",
+    "React",
+    "Next.js",
+    "TypeScript",
+  ],
+  authors: [{ name: "Portfolio Author" }],
+  openGraph: {
+    title: "Portfolio | Developer & Designer",
+    description:
+      "Personal portfolio showcasing projects, skills, and experience.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio | Developer & Designer",
+    description:
+      "Personal portfolio showcasing projects, skills, and experience.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
