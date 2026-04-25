@@ -8,6 +8,7 @@ const navLinks = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
+  { href: "/resume", label: "Resume" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -27,15 +28,25 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-foreground/70 hover:text-primary transition-colors font-medium"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("#") ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-foreground/70 hover:text-primary transition-colors font-medium"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-foreground/70 hover:text-primary transition-colors font-medium"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
 
           <button
@@ -73,16 +84,27 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden border-t border-border bg-background">
           <div className="px-4 py-3 space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-left py-2 px-3 text-foreground/70 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("#") ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full text-left py-2 px-3 text-foreground/70 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full text-left py-2 px-3 text-foreground/70 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
       )}
