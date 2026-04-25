@@ -16,7 +16,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`py-16 md:py-24 px-4 sm:px-6 lg:px-8 ${
+      className={`scroll-mt-16 py-16 md:py-24 px-4 sm:px-6 lg:px-8 ${
         alternate ? "bg-muted/50" : "bg-background"
       } ${className}`}
     >

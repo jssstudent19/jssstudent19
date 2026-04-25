@@ -1,4 +1,4 @@
-import Section from "../sections/Section";
+import Section from "./Section";
 
 export default function HeroSection() {
   return (

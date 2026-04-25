@@ -14,14 +14,6 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleNavClick = (href: string) => {
-    setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,20 +21,20 @@ export default function Navbar() {
           <Link
             href="#home"
             className="text-xl font-bold text-foreground hover:text-primary transition-colors"
-            onClick={() => handleNavClick("#home")}
+            onClick={() => setIsOpen(false)}
           >
             Portfolio
           </Link>
 
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.href}
-                onClick={() => handleNavClick(link.href)}
+                href={link.href}
                 className="text-foreground/70 hover:text-primary transition-colors font-medium"
               >
                 {link.label}
-              </button>
+              </a>
             ))}
           </div>
 
@@ -82,13 +74,14 @@ export default function Navbar() {
         <div className="md:hidden border-t border-border bg-background">
           <div className="px-4 py-3 space-y-2">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.href}
-                onClick={() => handleNavClick(link.href)}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
                 className="block w-full text-left py-2 px-3 text-foreground/70 hover:text-primary hover:bg-muted rounded-md transition-colors font-medium"
               >
                 {link.label}
-              </button>
+              </a>
             ))}
           </div>
         </div>
