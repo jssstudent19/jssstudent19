@@ -5,15 +5,15 @@ export default function HeroSection() {
     <Section id="home" className="min-h-screen flex items-center pt-16">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1 text-center md:text-left">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground">
+          <h1 className="animate-fade-in text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground">
             Hello, I am{" "}
             <span className="text-primary">Your Name</span>
           </h1>
-          <p className="mt-4 text-lg sm:text-xl text-muted-foreground max-w-2xl">
+          <p className="animate-slide-up mt-4 text-lg sm:text-xl text-muted-foreground max-w-2xl">
             A developer passionate about building beautiful, performant, and
             accessible web experiences.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <div className="animate-slide-up animation-delay-200 mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a
               href="#projects"
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium transition-colors hover:bg-primary/90"
@@ -28,7 +28,7 @@ export default function HeroSection() {
             </a>
           </div>
         </div>
-        <div className="flex-shrink-0">
+        <div className="animate-fade-in animation-delay-400 flex-shrink-0">
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-muted flex items-center justify-center">
             <span className="text-muted-foreground">Photo</span>
           </div>
